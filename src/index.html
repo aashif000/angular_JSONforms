@@ -7,6 +7,29 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    body {
+      background-color: #f3f4f6;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      min-height: 100vh;
+      padding: 1rem 0;
+    }
+    
+    /* Animations for form elements */
+    button, input, select, textarea {
+      transition: all 0.2s ease-in-out;
+    }
+    
+    input:focus, select:focus, textarea:focus {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
+    }
+    
+    /* Form submission animation */
+    .form-container button[type="submit"]:active:not(:disabled) {
+      transform: translateY(1px);
+    }
+  </style>
 </head>
 <body>
   <app-root></app-root>

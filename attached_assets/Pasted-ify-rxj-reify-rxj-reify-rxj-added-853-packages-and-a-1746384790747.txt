@@ -1,0 +1,149 @@
+ify:rxj[##################] - reify:rxj[##################] \ reify:rxj
+
+added 853 packages, and audited 854 packages in 2m
+
+129 packages are looking for funding
+  run `npm fund` for details    
+
+5 vulnerabilities (3 moderate, 2
+ high)
+
+To address all issues (including breaking changes), run:       
+  npm audit fix --force
+
+Run `npm audit` for details.
+(base) PS C:\Temp_project_area\Interview_Assignments\f7n\AngularJsonForm> ng serve
+Warning: This is a simple server for use in testing or debugging Angular applications
+locally. It hasn't been reviewed for security issues.
+
+Binding this server to an open connection can result in compromising your application or
+computer. Using a different host than the one passed to the "--host" flag might result in
+websocket connection issues. You might need to use "--disable-host-check" if that's the
+case.
+An unhandled exception occurred: Cannot find package '@angular/compiler-cli' imported from C:\Temp_project_area\Interview_Assignments\f7n\AngularJsonForm\node_modules\@angular-devkit\build-angular\src\utils\load-esm.js
+See "C:\Users\HP\AppData\Local\Temp\ng-6BeSed\angular-errors.log" for further details.
+(base) PS C:\Temp_project_area\Interview_Assignments\f7n\AngularJsonForm> npm install @angular/compiler-cli^15.2.0" --legacy-peer-deps       
+>>
+>>
+(base) PS C:\Temp_project_area\Interview_Assignments\f7n\AngularJsonForm> npm install @angular/compiler-cli15.2.0" --legacy-peer-deps  
+>>
+>>
+(base) PS C:\Temp_project_area\Interview_Assignments\f7n\AngularJsonForm> git init
+Reinitialized existing Git repository in C:/Temp_project_area/Interview_Assignments/f7n/AngularJsonForm/.git/
+(base) PS C:\Temp_project_area\Interview_Assignments\f7n\AngularJsonForm> git add README.md
+warning: in the working copy of 'README.md', LF will be replaced by CRLF the next time Git touches it
+(base) PS C:\Temp_project_area\Interview_Assignments\f7n\AngularJsonForm> git commit -m "first commit"
+On branch main
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)   
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   package-lock.json
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        node_modules/
+
+no changes added to commit (use "git add" and/or "git commit -a")
+(base) PS C:\Temp_project_area\Interview_Assignments\f7n\AngularJsonForm> git branch -M main
+(base) PS C:\Temp_project_area\Interview_Assignments\f7n\AngularJsonForm> git remote add origin https://github.com/aashif000/angular_JSONforms.git
+(base) PS C:\Temp_project_area\Interview_Assignments\f7n\AngularJsonForm> git push -u origin main
+Enumerating objects: 346, done.
+Counting objects: 100% (346/346), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (339/339), done.
+Writing objects: 100% (346/346), 19.45 MiB | 2.26 MiB/s, done.
+Total 346 (delta 32), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: Resolving deltas: 100% (32/32), done.
+remote: warning: See https://gh.io/lfs for more information.   
+remote: warning: File .angular/cache/14.2.13/angular-webpack/41a7d1a9ffdb9a09d03cac89764f21db6e27cc3d/4.pack is 76.29 MB; this is larger than GitHub's recommended maximum file size of 50.00 MB
+remote: warning: GH001: Large files detected. You may want to try Git Large File Storage - https://git-lfs.github.com.        
+To https://github.com/aashif000/angular_JSONforms.git
+ * [new branch]      main -> main
+branch 'main' set up to track 'origin/main'.
+(base) PS C:\Temp_project_area\Interview_Assignments\f7n\AngularJsonForm> ng add angular-cli-ghpages
+ℹ Using package manager: npm
+✔ Found compatible package version: angular-cli-ghpages@2.0.3. 
+✔ Package information loaded.
+
+The package angular-cli-ghpages@2.0.3 will be installed and    
+executed.
+Would you like to proceed? Yes
+npm ERR! code ERESOLVE
+npm ERR! ERESOLVE could not resolve
+npm ERR!
+npm ERR! While resolving: @angular-devkit/build-angular@14.2.13
+npm ERR! Found: @angular/compiler@14.2.0
+npm ERR! node_modules/@angular/compiler
+npm ERR!   peer @angular/compiler@"14.2.0" from @angular/platform-browser-dynamic@14.2.0
+npm ERR!   node_modules/@angular/platform-browser-dynamic      
+npm ERR!     @angular/platform-browser-dynamic@"^14.2.0" from the root project
+npm ERR!   @angular/compiler@"^14.2.0" from the root project   
+npm ERR!
+npm ERR! Could not resolve dependency:
+npm ERR! peer @angular/compiler-cli@"^14.0.0" from @angular-devkit/build-angular@14.2.13
+npm ERR! node_modules/@angular-devkit/build-angular
+npm ERR!   @angular-devkit/build-angular@"^14.2.13" from the root project
+npm ERR!
+npm ERR! Conflicting peer dependency: @angular/compiler@14.3.0 
+npm ERR! node_modules/@angular/compiler
+npm ERR!   peer @angular/compiler@"14.3.0" from @angular/compiler-cli@14.3.0
+npm ERR!   node_modules/@angular/compiler-cli
+npm ERR!     peer @angular/compiler-cli@"^14.0.0" from @angular-devkit/build-angular@14.2.13
+npm ERR!     node_modules/@angular-devkit/build-angular        
+npm ERR!       @angular-devkit/build-angular@"^14.2.13" from the root project
+npm ERR!
+npm ERR! Fix the upstream dependency conflict, or retry        
+npm ERR! this command with --force or --legacy-peer-deps       
+npm ERR! to accept an incorrect (and potentially broken) dependency resolution.
+npm ERR!
+npm ERR!
+npm ERR! For a full report see:
+npm ERR! C:\Users\HP\AppData\Local\npm-cache\_logs\2025-05-04T18_49_11_571Z-eresolve-report.txt
+
+npm ERR! A complete log of this run can be found in: C:\Users\HP\AppData\Local\npm-cache\_logs\2025-05-04T18_49_11_571Z-debug-0.log
+✖ Packages installation failed, see above.
+(base) PS C:\Temp_project_area\Interview_Assignments\f7n\AngularJsonForm> ng deploy --base-href=/angular_JSONforms/
+Error: Unknown argument: base-href
+(base) PS C:\Temp_project_area\Interview_Assignments\f7n\AngularJsonForm> ng add angular-cli-ghpages --force
+ℹ Using package manager: npm
+✔ Found compatible package version: angular-cli-ghpages@2.0.3. 
+✔ Package information loaded.
+
+The package angular-cli-ghpages@2.0.3 will be installed and    
+executed.
+Would you like to proceed? Yes
+npm ERR! code ERESOLVE
+npm ERR! ERESOLVE could not resolve
+npm ERR!
+npm ERR! While resolving: @angular-devkit/build-angular@14.2.13
+npm ERR! Found: @angular/compiler@14.2.0
+npm ERR! node_modules/@angular/compiler
+npm ERR!   peer @angular/compiler@"14.2.0" from @angular/platform-browser-dynamic@14.2.0
+npm ERR!   node_modules/@angular/platform-browser-dynamic      
+npm ERR!     @angular/platform-browser-dynamic@"^14.2.0" from the root project
+npm ERR!   @angular/compiler@"^14.2.0" from the root project   
+npm ERR!
+npm ERR! Could not resolve dependency:
+npm ERR! peer @angular/compiler-cli@"^14.0.0" from @angular-devkit/build-angular@14.2.13
+npm ERR! node_modules/@angular-devkit/build-angular
+npm ERR!   @angular-devkit/build-angular@"^14.2.13" from the root project
+npm ERR!
+npm ERR! Conflicting peer dependency: @angular/compiler@14.3.0 
+npm ERR! node_modules/@angular/compiler
+npm ERR!   peer @angular/compiler@"14.3.0" from @angular/compiler-cli@14.3.0
+npm ERR!   node_modules/@angular/compiler-cli
+npm ERR!     peer @angular/compiler-cli@"^14.0.0" from @angular-devkit/build-angular@14.2.13
+npm ERR!     node_modules/@angular-devkit/build-angular        
+npm ERR!       @angular-devkit/build-angular@"^14.2.13" from the root project
+npm ERR!
+npm ERR! Fix the upstream dependency conflict, or retry        
+npm ERR! this command with --force or --legacy-peer-deps       
+npm ERR! to accept an incorrect (and potentially broken) dependency resolution.
+npm ERR!
+npm ERR!
+npm ERR! For a full report see:
+npm ERR! C:\Users\HP\AppData\Local\npm-cache\_logs\2025-05-04T18_52_09_674Z-eresolve-report.txt
+
+npm ERR! A complete log of this run can be found in: C:\Users\HP\AppData\Local\npm-cache\_logs\2025-05-04T18_52_09_674Z-debug-0.log
+✖ Packages installation failed, see above.
+(base) PS C:\Temp_project_area\Interview_Assignments\f7n\AngularJsonForm>

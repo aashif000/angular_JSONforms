@@ -1,42 +1,63 @@
-<div class="app-container">
-  <header class="app-header">
-    <h1 class="text-2xl font-bold text-center py-4">{{ title }}</h1>
+<div class="app-container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  <header class="app-header bg-white shadow-sm rounded-lg mt-4 mb-6 p-6">
+    <h1 class="text-3xl font-bold text-center py-4 text-blue-700">{{ title }}</h1>
+    <p class="text-center text-gray-600 mb-6">Demonstrating dynamic form generation with JSON Schemas and Angular</p>
     
     <div class="form-switcher mb-4 flex justify-center">
-      <div class="form-switcher-container inline-flex shadow-sm rounded-md">
+      <div class="form-switcher-container inline-flex shadow-md rounded-md">
         <button 
           type="button"
-          class="form-switcher-button px-4 py-2 text-sm font-medium rounded-l-md"
-          [ngClass]="{'bg-blue-600 text-white': currentFormType === 'personal', 'bg-gray-100 text-gray-700 hover:bg-gray-200': currentFormType !== 'personal'}"
+          class="form-switcher-button px-5 py-3 text-sm font-medium rounded-l-md transition-all duration-200 ease-in-out"
+          [ngClass]="{'bg-blue-600 text-white shadow-inner': currentFormType === 'personal', 'bg-gray-100 text-gray-700 hover:bg-gray-200': currentFormType !== 'personal'}"
           (click)="switchForm('personal')">
-          Personal Information Form
+          <span class="flex items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+            </svg>
+            Personal Information
+          </span>
         </button>
         <button 
           type="button"
-          class="form-switcher-button px-4 py-2 text-sm font-medium rounded-r-md"
-          [ngClass]="{'bg-blue-600 text-white': currentFormType === 'product', 'bg-gray-100 text-gray-700 hover:bg-gray-200': currentFormType !== 'product'}"
+          class="form-switcher-button px-5 py-3 text-sm font-medium rounded-r-md transition-all duration-200 ease-in-out"
+          [ngClass]="{'bg-blue-600 text-white shadow-inner': currentFormType === 'product', 'bg-gray-100 text-gray-700 hover:bg-gray-200': currentFormType !== 'product'}"
           (click)="switchForm('product')">
-          Product Form
+          <span class="flex items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+            </svg>
+            Product Information
+          </span>
         </button>
       </div>
     </div>
   </header>
   
   <main class="app-content">
-    <div class="form-container mb-8">
+    <div class="form-container mb-8 bg-white shadow-lg rounded-lg p-6">
       <app-simple-form
         [formType]="currentFormType"
         (formSubmit)="handleFormSubmit($event)">
       </app-simple-form>
     </div>
     
-    <div class="form-data-display mb-8" *ngIf="formData && hasFormData()">
-      <h2 class="text-xl font-semibold mb-2">Form Data:</h2>
-      <pre class="bg-gray-100 p-4 rounded-md overflow-auto text-sm">{{ formData | json }}</pre>
+    <div class="form-data-display mb-8 bg-white shadow-lg rounded-lg p-6 transition-all duration-300 ease-in-out" *ngIf="formData && hasFormData()">
+      <h2 class="text-xl font-semibold mb-2 text-blue-700 flex items-center">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+        </svg>
+        Form Data:
+      </h2>
+      <pre class="bg-gray-50 p-4 rounded-md overflow-auto text-sm border border-gray-200">{{ formData | json }}</pre>
     </div>
   </main>
   
-  <footer class="app-footer text-center py-4 text-gray-600 text-sm">
-    <p>Angular Forms Demo - Demonstrating Dynamic Form Generation</p>
+  <footer class="app-footer text-center py-6 text-gray-600 text-sm bg-white shadow-lg rounded-lg mb-8 p-4">
+    <p class="flex items-center justify-center">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+      </svg>
+      Angular Forms Demo with JSONForms.io - Dynamic Form Generation
+    </p>
   </footer>
 </div>

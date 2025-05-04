@@ -86,8 +86,22 @@ The project implements custom renderers to enhance the default JSONForms compone
 
 1. Clone the repository
 2. Install dependencies with `npm install --legacy-peer-deps`
-3. Run the development server with `ng serve`
-4. Access the application at `http://localhost:4200`
+3. If you encounter compiler errors, install the correct compiler version:
+   ```bash
+   npm install @angular/compiler-cli@14.2.0 --legacy-peer-deps
+   npm install @angular/compiler@14.2.0 --legacy-peer-deps
+   ```
+4. Run the development server with `ng serve`
+5. Access the application at `http://localhost:4200`
+
+### Deployment Notes
+
+If deploying to GitHub Pages, use the following commands:
+```bash
+npm install -g angular-cli-ghpages --legacy-peer-deps
+ng build --base-href="https://[username].github.io/[repo-name]/"
+npx ngh --dir=dist/[project-name]
+```
 
 ## Technologies Used
 
