@@ -1,0 +1,36 @@
+<div class="form-switcher mb-6">
+  <div class="sm:hidden">
+    <label for="form-selector" class="sr-only">Select Form</label>
+    <select 
+      id="form-selector" 
+      name="form" 
+      class="block w-full rounded-md border-gray-300 py-2 pl-3 pr-10 text-base focus:border-blue-500 focus:outline-none focus:ring-blue-500 sm:text-sm"
+      [value]="currentFormId"
+      (change)="selectForm($event.target.value)">
+      <option *ngFor="let form of forms" [value]="form.id">{{ form.name }}</option>
+    </select>
+  </div>
+  
+  <div class="hidden sm:block">
+    <div class="border-b border-gray-200">
+      <nav class="-mb-px flex space-x-8" aria-label="Tabs">
+        <a 
+          *ngFor="let form of forms" 
+          [class.border-blue-500]="form.id === currentFormId"
+          [class.text-blue-600]="form.id === currentFormId"
+          [class.border-transparent]="form.id !== currentFormId"
+          [class.text-gray-500]="form.id !== currentFormId"
+          class="whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm cursor-pointer hover:text-gray-700 hover:border-gray-300"
+          (click)="selectForm(form.id)">
+          {{ form.name }}
+        </a>
+      </nav>
+    </div>
+  </div>
+  
+  <div class="mt-4" *ngIf="currentFormId">
+    <p class="text-sm text-gray-500">
+      {{ forms.find(form => form.id === currentFormId)?.description }}
+    </p>
+  </div>
+</div>

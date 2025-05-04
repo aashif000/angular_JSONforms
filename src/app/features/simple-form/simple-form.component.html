@@ -1,0 +1,476 @@
+<div class="dynamic-form-container">
+  <form [formGroup]="form" (ngSubmit)="onSubmit()" novalidate>
+    <!-- Personal Info Form -->
+    <div *ngIf="formType === 'personal'" class="personal-form">
+      <div class="mb-6">
+        <h3 class="text-lg font-medium mb-4">Basic Information</h3>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+          <!-- First Name -->
+          <div class="form-group">
+            <label for="firstName" class="block text-sm font-medium text-gray-700 mb-1">
+              First Name <span class="text-red-500">*</span>
+            </label>
+            <input 
+              type="text" 
+              id="firstName" 
+              formControlName="firstName"
+              class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm p-2 border"
+              [ngClass]="{'border-red-500': form.get('firstName')?.invalid && form.get('firstName')?.touched}">
+            
+            <div *ngIf="form.get('firstName')?.invalid && form.get('firstName')?.touched" class="text-red-500 text-sm mt-1">
+              <span *ngIf="form.get('firstName')?.errors?.['required']">First name is required.</span>
+              <span *ngIf="form.get('firstName')?.errors?.['minlength']">First name must be at least 2 characters.</span>
+              <span *ngIf="form.get('firstName')?.errors?.['maxlength']">First name cannot exceed 50 characters.</span>
+            </div>
+          </div>
+          
+          <!-- Last Name -->
+          <div class="form-group">
+            <label for="lastName" class="block text-sm font-medium text-gray-700 mb-1">
+              Last Name <span class="text-red-500">*</span>
+            </label>
+            <input 
+              type="text" 
+              id="lastName" 
+              formControlName="lastName"
+              class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm p-2 border"
+              [ngClass]="{'border-red-500': form.get('lastName')?.invalid && form.get('lastName')?.touched}">
+            
+            <div *ngIf="form.get('lastName')?.invalid && form.get('lastName')?.touched" class="text-red-500 text-sm mt-1">
+              <span *ngIf="form.get('lastName')?.errors?.['required']">Last name is required.</span>
+              <span *ngIf="form.get('lastName')?.errors?.['minlength']">Last name must be at least 2 characters.</span>
+              <span *ngIf="form.get('lastName')?.errors?.['maxlength']">Last name cannot exceed 50 characters.</span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Email -->
+        <div class="form-group mb-4">
+          <label for="email" class="block text-sm font-medium text-gray-700 mb-1">
+            Email <span class="text-red-500">*</span>
+          </label>
+          <input 
+            type="email" 
+            id="email" 
+            formControlName="email"
+            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm p-2 border"
+            [ngClass]="{'border-red-500': form.get('email')?.invalid && form.get('email')?.touched}">
+          
+          <div *ngIf="form.get('email')?.invalid && form.get('email')?.touched" class="text-red-500 text-sm mt-1">
+            <span *ngIf="form.get('email')?.errors?.['required']">Email is required.</span>
+            <span *ngIf="form.get('email')?.errors?.['email']">Please enter a valid email address.</span>
+          </div>
+        </div>
+        
+        <!-- Phone -->
+        <div class="form-group mb-4">
+          <label for="phone" class="block text-sm font-medium text-gray-700 mb-1">
+            Phone
+          </label>
+          <input 
+            type="tel" 
+            id="phone" 
+            formControlName="phone"
+            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm p-2 border"
+            [ngClass]="{'border-red-500': form.get('phone')?.invalid && form.get('phone')?.touched}">
+          
+          <div *ngIf="form.get('phone')?.invalid && form.get('phone')?.touched" class="text-red-500 text-sm mt-1">
+            <span *ngIf="form.get('phone')?.errors?.['pattern']">Please enter a valid phone number.</span>
+          </div>
+        </div>
+        
+        <!-- Gender -->
+        <div class="form-group mb-4">
+          <label class="block text-sm font-medium text-gray-700 mb-1">Gender</label>
+          <select 
+            formControlName="gender"
+            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm p-2 border">
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="other">Other</option>
+            <option value="prefer_not_to_say">Prefer not to say</option>
+          </select>
+        </div>
+      </div>
+      
+      <!-- Address Section -->
+      <div formGroupName="address" class="mb-6">
+        <h3 class="text-lg font-medium mb-4">Address</h3>
+        
+        <!-- Street -->
+        <div class="form-group mb-4">
+          <label for="street" class="block text-sm font-medium text-gray-700 mb-1">
+            Street <span class="text-red-500">*</span>
+          </label>
+          <input 
+            type="text" 
+            id="street" 
+            formControlName="street"
+            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm p-2 border"
+            [ngClass]="{'border-red-500': form.get('address')?.get('street')?.invalid && form.get('address')?.get('street')?.touched}">
+          
+          <div *ngIf="form.get('address')?.get('street')?.invalid && form.get('address')?.get('street')?.touched" class="text-red-500 text-sm mt-1">
+            <span *ngIf="form.get('address')?.get('street')?.errors?.['required']">Street is required.</span>
+          </div>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
+          <!-- City -->
+          <div class="form-group">
+            <label for="city" class="block text-sm font-medium text-gray-700 mb-1">
+              City <span class="text-red-500">*</span>
+            </label>
+            <input 
+              type="text" 
+              id="city" 
+              formControlName="city"
+              class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm p-2 border"
+              [ngClass]="{'border-red-500': form.get('address')?.get('city')?.invalid && form.get('address')?.get('city')?.touched}">
+            
+            <div *ngIf="form.get('address')?.get('city')?.invalid && form.get('address')?.get('city')?.touched" class="text-red-500 text-sm mt-1">
+              <span *ngIf="form.get('address')?.get('city')?.errors?.['required']">City is required.</span>
+            </div>
+          </div>
+          
+          <!-- State -->
+          <div class="form-group">
+            <label for="state" class="block text-sm font-medium text-gray-700 mb-1">
+              State
+            </label>
+            <input 
+              type="text" 
+              id="state" 
+              formControlName="state"
+              class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm p-2 border">
+          </div>
+          
+          <!-- Zip Code -->
+          <div class="form-group">
+            <label for="zipCode" class="block text-sm font-medium text-gray-700 mb-1">
+              ZIP Code
+            </label>
+            <input 
+              type="text" 
+              id="zipCode" 
+              formControlName="zipCode"
+              class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm p-2 border">
+          </div>
+        </div>
+        
+        <!-- Country -->
+        <div class="form-group mb-4">
+          <label for="country" class="block text-sm font-medium text-gray-700 mb-1">
+            Country <span class="text-red-500">*</span>
+          </label>
+          <select 
+            id="country" 
+            formControlName="country"
+            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm p-2 border"
+            [ngClass]="{'border-red-500': form.get('address')?.get('country')?.invalid && form.get('address')?.get('country')?.touched}">
+            <option value="USA">USA</option>
+            <option value="Canada">Canada</option>
+            <option value="Mexico">Mexico</option>
+            <option value="Other">Other</option>
+          </select>
+          
+          <div *ngIf="form.get('address')?.get('country')?.invalid && form.get('address')?.get('country')?.touched" class="text-red-500 text-sm mt-1">
+            <span *ngIf="form.get('address')?.get('country')?.errors?.['required']">Country is required.</span>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Preferences Section -->
+      <div formGroupName="preferences" class="mb-6">
+        <h3 class="text-lg font-medium mb-4">Preferences</h3>
+        
+        <!-- Newsletter -->
+        <div class="form-group mb-4">
+          <div class="flex items-start">
+            <div class="flex items-center h-5">
+              <input 
+                type="checkbox" 
+                id="newsletter" 
+                formControlName="newsletter"
+                class="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300 rounded">
+            </div>
+            <div class="ml-3 text-sm">
+              <label for="newsletter" class="font-medium text-gray-700">Subscribe to our newsletter</label>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Contact Method (conditional) -->
+        <div class="form-group mb-4" *ngIf="form.get('preferences')?.get('newsletter')?.value">
+          <label for="contactMethod" class="block text-sm font-medium text-gray-700 mb-1">
+            Preferred Contact Method
+          </label>
+          <select 
+            id="contactMethod" 
+            formControlName="contactMethod"
+            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm p-2 border">
+            <option value="email">Email</option>
+            <option value="phone">Phone</option>
+            <option value="mail">Mail</option>
+          </select>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Product Form -->
+    <div *ngIf="formType === 'product'" class="product-form">
+      <div class="mb-6">
+        <h3 class="text-lg font-medium mb-4">Basic Information</h3>
+        
+        <!-- Product Name -->
+        <div class="form-group mb-4">
+          <label for="productName" class="block text-sm font-medium text-gray-700 mb-1">
+            Product Name <span class="text-red-500">*</span>
+          </label>
+          <input 
+            type="text" 
+            id="productName" 
+            formControlName="productName"
+            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm p-2 border"
+            [ngClass]="{'border-red-500': form.get('productName')?.invalid && form.get('productName')?.touched}">
+          
+          <div *ngIf="form.get('productName')?.invalid && form.get('productName')?.touched" class="text-red-500 text-sm mt-1">
+            <span *ngIf="form.get('productName')?.errors?.['required']">Product name is required.</span>
+            <span *ngIf="form.get('productName')?.errors?.['minlength']">Product name must be at least 3 characters.</span>
+            <span *ngIf="form.get('productName')?.errors?.['maxlength']">Product name cannot exceed 100 characters.</span>
+          </div>
+        </div>
+        
+        <!-- SKU -->
+        <div class="form-group mb-4">
+          <label for="sku" class="block text-sm font-medium text-gray-700 mb-1">
+            SKU <span class="text-red-500">*</span>
+          </label>
+          <input 
+            type="text" 
+            id="sku" 
+            formControlName="sku"
+            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm p-2 border"
+            [ngClass]="{'border-red-500': form.get('sku')?.invalid && form.get('sku')?.touched}">
+          
+          <div *ngIf="form.get('sku')?.invalid && form.get('sku')?.touched" class="text-red-500 text-sm mt-1">
+            <span *ngIf="form.get('sku')?.errors?.['required']">SKU is required.</span>
+          </div>
+        </div>
+        
+        <!-- Category -->
+        <div class="form-group mb-4">
+          <label for="category" class="block text-sm font-medium text-gray-700 mb-1">
+            Category <span class="text-red-500">*</span>
+          </label>
+          <select 
+            id="category" 
+            formControlName="category"
+            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm p-2 border"
+            [ngClass]="{'border-red-500': form.get('category')?.invalid && form.get('category')?.touched}">
+            <option value="electronics">Electronics</option>
+            <option value="clothing">Clothing</option>
+            <option value="food">Food</option>
+            <option value="books">Books</option>
+            <option value="home">Home</option>
+            <option value="other">Other</option>
+          </select>
+          
+          <div *ngIf="form.get('category')?.invalid && form.get('category')?.touched" class="text-red-500 text-sm mt-1">
+            <span *ngIf="form.get('category')?.errors?.['required']">Category is required.</span>
+          </div>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+          <!-- Price -->
+          <div class="form-group">
+            <label for="price" class="block text-sm font-medium text-gray-700 mb-1">
+              Price ($) <span class="text-red-500">*</span>
+            </label>
+            <input 
+              type="number" 
+              id="price" 
+              formControlName="price"
+              min="0"
+              step="0.01"
+              class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm p-2 border"
+              [ngClass]="{'border-red-500': form.get('price')?.invalid && form.get('price')?.touched}">
+            
+            <div *ngIf="form.get('price')?.invalid && form.get('price')?.touched" class="text-red-500 text-sm mt-1">
+              <span *ngIf="form.get('price')?.errors?.['required']">Price is required.</span>
+              <span *ngIf="form.get('price')?.errors?.['min']">Price cannot be negative.</span>
+            </div>
+          </div>
+          
+          <!-- Discount -->
+          <div class="form-group">
+            <label for="discount" class="block text-sm font-medium text-gray-700 mb-1">
+              Discount (%)
+            </label>
+            <input 
+              type="number" 
+              id="discount" 
+              formControlName="discount"
+              min="0"
+              max="100"
+              class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm p-2 border"
+              [ngClass]="{'border-red-500': form.get('discount')?.invalid && form.get('discount')?.touched}">
+            
+            <div *ngIf="form.get('discount')?.invalid && form.get('discount')?.touched" class="text-red-500 text-sm mt-1">
+              <span *ngIf="form.get('discount')?.errors?.['min']">Discount cannot be negative.</span>
+              <span *ngIf="form.get('discount')?.errors?.['max']">Discount cannot exceed 100%.</span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Description -->
+        <div class="form-group mb-4">
+          <label for="description" class="block text-sm font-medium text-gray-700 mb-1">
+            Description
+          </label>
+          <textarea 
+            id="description" 
+            formControlName="description"
+            rows="3"
+            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm p-2 border"></textarea>
+        </div>
+      </div>
+      
+      <!-- Inventory Section -->
+      <div class="mb-6">
+        <h3 class="text-lg font-medium mb-4">Inventory Information</h3>
+        
+        <!-- In Stock -->
+        <div class="form-group mb-4">
+          <div class="flex items-start">
+            <div class="flex items-center h-5">
+              <input 
+                type="checkbox" 
+                id="inStock" 
+                formControlName="inStock"
+                class="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300 rounded">
+            </div>
+            <div class="ml-3 text-sm">
+              <label for="inStock" class="font-medium text-gray-700">In Stock</label>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Stock Quantity (conditional) -->
+        <div class="form-group mb-4" *ngIf="form.get('inStock')?.value">
+          <label for="stockQuantity" class="block text-sm font-medium text-gray-700 mb-1">
+            Stock Quantity
+          </label>
+          <input 
+            type="number" 
+            id="stockQuantity" 
+            formControlName="stockQuantity"
+            min="0"
+            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm p-2 border"
+            [ngClass]="{'border-red-500': form.get('stockQuantity')?.invalid && form.get('stockQuantity')?.touched}">
+          
+          <div *ngIf="form.get('stockQuantity')?.invalid && form.get('stockQuantity')?.touched" class="text-red-500 text-sm mt-1">
+            <span *ngIf="form.get('stockQuantity')?.errors?.['min']">Stock quantity cannot be negative.</span>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Specifications Section -->
+      <div formGroupName="specifications" class="mb-6">
+        <h3 class="text-lg font-medium mb-4">Physical Specifications</h3>
+        
+        <!-- Weight -->
+        <div class="form-group mb-4">
+          <label for="weight" class="block text-sm font-medium text-gray-700 mb-1">
+            Weight (kg)
+          </label>
+          <input 
+            type="number" 
+            id="weight" 
+            formControlName="weight"
+            min="0"
+            step="0.01"
+            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm p-2 border"
+            [ngClass]="{'border-red-500': form.get('specifications')?.get('weight')?.invalid && form.get('specifications')?.get('weight')?.touched}">
+          
+          <div *ngIf="form.get('specifications')?.get('weight')?.invalid && form.get('specifications')?.get('weight')?.touched" class="text-red-500 text-sm mt-1">
+            <span *ngIf="form.get('specifications')?.get('weight')?.errors?.['min']">Weight cannot be negative.</span>
+          </div>
+        </div>
+        
+        <!-- Color -->
+        <div class="form-group mb-4">
+          <label for="color" class="block text-sm font-medium text-gray-700 mb-1">
+            Color
+          </label>
+          <input 
+            type="text" 
+            id="color" 
+            formControlName="color"
+            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm p-2 border">
+        </div>
+        
+        <!-- Dimensions Section -->
+        <div formGroupName="dimensions">
+          <h4 class="text-md font-medium mb-2">Dimensions</h4>
+          
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
+            <!-- Length -->
+            <div class="form-group">
+              <label for="length" class="block text-sm font-medium text-gray-700 mb-1">
+                Length (cm)
+              </label>
+              <input 
+                type="number" 
+                id="length" 
+                formControlName="length"
+                min="0"
+                step="0.1"
+                class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm p-2 border"
+                [ngClass]="{'border-red-500': form.get('specifications')?.get('dimensions')?.get('length')?.invalid && form.get('specifications')?.get('dimensions')?.get('length')?.touched}">
+            </div>
+            
+            <!-- Width -->
+            <div class="form-group">
+              <label for="width" class="block text-sm font-medium text-gray-700 mb-1">
+                Width (cm)
+              </label>
+              <input 
+                type="number" 
+                id="width" 
+                formControlName="width"
+                min="0"
+                step="0.1"
+                class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm p-2 border"
+                [ngClass]="{'border-red-500': form.get('specifications')?.get('dimensions')?.get('width')?.invalid && form.get('specifications')?.get('dimensions')?.get('width')?.touched}">
+            </div>
+            
+            <!-- Height -->
+            <div class="form-group">
+              <label for="height" class="block text-sm font-medium text-gray-700 mb-1">
+                Height (cm)
+              </label>
+              <input 
+                type="number" 
+                id="height" 
+                formControlName="height"
+                min="0"
+                step="0.1"
+                class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm p-2 border"
+                [ngClass]="{'border-red-500': form.get('specifications')?.get('dimensions')?.get('height')?.invalid && form.get('specifications')?.get('dimensions')?.get('height')?.touched}">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Submit Button -->
+    <div class="mt-8 flex justify-end">
+      <button 
+        type="submit"
+        class="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors">
+        Submit
+      </button>
+    </div>
+  </form>
+</div>

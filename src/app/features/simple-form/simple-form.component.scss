@@ -1,0 +1,58 @@
+/* Form Container */
+.dynamic-form-container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 1.5rem;
+  background-color: white;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  border-radius: 0.5rem;
+}
+
+/* Form Group Styles */
+.form-group {
+  margin-bottom: 1rem;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .dynamic-form-container {
+    padding: 1rem;
+  }
+}
+
+/* Animation for error messages */
+.text-red-500 {
+  transition: all 0.3s ease;
+}
+
+/* Focus styles for inputs */
+input:focus, select:focus, textarea:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.25);
+}
+
+/* Section style */
+.mb-6 {
+  margin-bottom: 1.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.mb-6:last-child {
+  border-bottom: none;
+}
+
+/* Submitted form style (optional) */
+.form-submitted {
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+/* Button hover effect */
+button:hover {
+  transform: translateY(-1px);
+}
+
+button:active {
+  transform: translateY(1px);
+}

@@ -1,0 +1,42 @@
+<div class="app-container">
+  <header class="app-header">
+    <h1 class="text-2xl font-bold text-center py-4">{{ title }}</h1>
+    
+    <div class="form-switcher mb-4 flex justify-center">
+      <div class="form-switcher-container inline-flex shadow-sm rounded-md">
+        <button 
+          type="button"
+          class="form-switcher-button px-4 py-2 text-sm font-medium rounded-l-md"
+          [ngClass]="{'bg-blue-600 text-white': currentFormType === 'personal', 'bg-gray-100 text-gray-700 hover:bg-gray-200': currentFormType !== 'personal'}"
+          (click)="switchForm('personal')">
+          Personal Information Form
+        </button>
+        <button 
+          type="button"
+          class="form-switcher-button px-4 py-2 text-sm font-medium rounded-r-md"
+          [ngClass]="{'bg-blue-600 text-white': currentFormType === 'product', 'bg-gray-100 text-gray-700 hover:bg-gray-200': currentFormType !== 'product'}"
+          (click)="switchForm('product')">
+          Product Form
+        </button>
+      </div>
+    </div>
+  </header>
+  
+  <main class="app-content">
+    <div class="form-container mb-8">
+      <app-simple-form
+        [formType]="currentFormType"
+        (formSubmit)="handleFormSubmit($event)">
+      </app-simple-form>
+    </div>
+    
+    <div class="form-data-display mb-8" *ngIf="formData && hasFormData()">
+      <h2 class="text-xl font-semibold mb-2">Form Data:</h2>
+      <pre class="bg-gray-100 p-4 rounded-md overflow-auto text-sm">{{ formData | json }}</pre>
+    </div>
+  </main>
+  
+  <footer class="app-footer text-center py-4 text-gray-600 text-sm">
+    <p>Angular Forms Demo - Demonstrating Dynamic Form Generation</p>
+  </footer>
+</div>

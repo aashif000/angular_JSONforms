@@ -1,0 +1,43 @@
+.app-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.app-header {
+  margin-bottom: 2rem;
+}
+
+.app-content {
+  min-height: calc(100vh - 200px);
+}
+
+.form-switcher-button {
+  transition: all 0.3s ease;
+  border: 1px solid #e2e8f0;
+}
+
+.form-switcher-button:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.25);
+}
+
+.form-data-display {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+pre {
+  white-space: pre-wrap;
+  word-break: break-word;
+}
