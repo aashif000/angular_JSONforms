@@ -98,7 +98,7 @@ export class CustomInputRenderer extends JsonFormsControl {
     return this.scopedSchema.type === 'number';
   }
 
-  onChange(event: any): void {
+  override onChange(event: any): void {
     const value = event.target.value;
     
     // Handle conversion for number types
