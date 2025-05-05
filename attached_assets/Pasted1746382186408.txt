@@ -1,0 +1,42 @@
+Objective
+The goal of this assignment is to evaluate your understanding of Angular (preferably Angular 15), JSON-based dynamic forms using the jsonforms.io library (Reference), custom renderers, and Tailwind CSS for styling. You are required to build an Angular project where the UI is dynamically generated using JSON-based forms, following a given screen design.
+
+Phased Tasks
+Phase 1: Project Setup
+Set up an Angular 15 project.
+Install necessary dependencies, including jsonforms.io and Tailwind CSS.
+Configure Tailwind CSS in your Angular project.
+Set up the project structure with modular components.
+Phase 2: Implement JSON Forms
+Use the jsonforms.io library to dynamically generate form fields from a JSON configuration.
+Ensure the form fields are displayed as per the provided screen design or pick any screen as per your wish.
+Implement two different JSON configurations to showcase different form layouts.
+Phase 3: Custom Renderers
+Replace default form components with custom Angular renderers.
+Implement at least one custom renderer for a specific form element.
+Ensure that custom renderers adhere to the provided UI design.
+Phase 4: Responsive Design & Styling
+Apply Tailwind CSS to ensure the UI is visually appealing.
+Make the application fully responsive for both mobile and desktop views.
+Ensure proper spacing, alignment, and overall user experience.
+Phase 5: Form Validations & Interactive Elements
+Implement validations based on the JSON configuration.
+Add at least one interactive component, such as a dropdown that affects other fields dynamically.
+Ensure real-time validation feedback is displayed correctly.
+Phase 6: Finalization & Submission
+Ensure the application functions correctly without errors.
+Add documentation (README.md) with setup instructions, JSON structure explanation, and assumptions made.
+Upload the project to GitHub.
+Record and submit a working demo or video showcasing the implementation.
+
+Deliverables
+GitHub Repository with your code.
+A working demo or video showcasing the implementation.
+Evaluation Criteria
+Code Structure & Best Practices
+Understanding of Angular & JSON Forms (jsonforms.io library)
+Use of Custom Renderers
+UI/UX using Tailwind
+Error Handling & Form Validations
+Mobile & Desktop Responsiveness
+Adherence to the Provided UI Design

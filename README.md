@@ -103,6 +103,9 @@ ng build --base-href="https://[username].github.io/[repo-name]/"
 npx ngh --dir=dist/[project-name]
 ```
 
+ng build --base-href="https://aashif000.github.io/angular_JSONforms/"
+npx ngh --dir=dist/angular_JSONforms
+
 ## Technologies Used
 
 - Angular 14
